@@ -24,6 +24,7 @@ export const HotelsInfoCard = ({ hotels = {} }) => {
             <HotelCardCover source={{ uri: photos[0] }} />
             <Info>
                 <Text variant="label">{name}</Text>
+    
                 <Section>
                     <Rating>
                         {
@@ -44,9 +45,9 @@ export const HotelsInfoCard = ({ hotels = {} }) => {
                         </Spacer>
                     </SectionEnd>
                 </Section>
-
                 <Address>{address}</Address>
             </Info>
+                            
         </HotelCard>
     )
 } 
