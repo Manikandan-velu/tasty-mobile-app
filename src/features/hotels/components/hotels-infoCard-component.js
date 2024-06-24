@@ -6,34 +6,36 @@ import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
 import { HotelCard, HotelCardCover, Address, Info, Rating, Section, SectionEnd, Icon } from "./hotels-infoCard-styles";
 
-export const HotelsInfoCard = ({ hotels = {} }) => {
+export const HotelsInfoCard = ({ hotel }) => {
     const {
-        name = "FoodsToGo",
+        name = "Some Restaurant",
         icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
-        photos = ["https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D"],
-        address = "152, Rayban Street, IND",
+        photos = [
+            "https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-600x899.jpg",
+        ],
+        address = "100 some random street",
         isOpenNow = true,
         rating = 4,
-        isClosedNow = true
-    } = hotels;
+        isClosedTemporarily = true,
+        placeId
+    } = hotel;
 
-    const ratingArr = Array.from(new Array(Math.floor(rating)));
-
+    const ratingArray = Array.from(new Array(Math.floor(rating)));
     return (
-        <HotelCard elevation={3}>
+        <HotelCard elevation={5}>
             <HotelCardCover source={{ uri: photos[0] }} />
             <Info>
                 <Text variant="label">{name}</Text>
                 <Section>
                     <Rating>
                         {
-                            ratingArr.map(() => (
-                                <SvgXml xml={star} width={20} height={20} />
+                            ratingArray.map((_, i) => (
+                                <SvgXml key={`star-${placeId}-${i}`} xml={star} width={20} height={20} />
                             ))
                         }
                     </Rating>
                     <SectionEnd>
-                        {isClosedNow && (
+                        {isClosedTemporarily && (
                             <Text variant="error">CLOSED TEMPRORARLY</Text>
                         )}
                         <Spacer position="left" size="large">
