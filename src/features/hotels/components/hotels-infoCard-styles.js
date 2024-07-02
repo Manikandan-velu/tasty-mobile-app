@@ -42,4 +42,5 @@ export const SectionEnd = styled.View`
 export const Icon = styled.Image`
     width: 15px;
     height: 15px;
+    padding:0;
 `;

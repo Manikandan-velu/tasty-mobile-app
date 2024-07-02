@@ -19,13 +19,14 @@ const ListContainer = styled.View`
 `;
 
 const Loading = styled(ActivityIndicator)`
-    margin-left: -25px;
+    margin-left: -30px;
 `;
 
 const LoadingContainer = styled.View`
     position: abosolute;
     top: 50%;
-    left: 0%
+    left: 0%;
+    z-index:1;
 `;
 
 export const HotelsScreen = ({ navigation }) => {
